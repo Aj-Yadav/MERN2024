@@ -1,18 +1,12 @@
 const express = require("express");
 const router = express.Router();
+// const {home, register} = require("../controllers/auth-controllers");
+const authControllers = require("../controllers/auth-controllers");
 
 //?         we have advantages of using this method 
-router.route("/").get((req,res) => {
-    res
-    .status(200)
-    .send("hello i am in Router Home")
-})
+router.route("/").get(authControllers.home);
 
-router.route("/register").get((req, res) => {
-    res
-    .status(200)
-    .send("hello i am in router register")
-})
+router.route("/register").get(authControllers.register)
 
 
 
