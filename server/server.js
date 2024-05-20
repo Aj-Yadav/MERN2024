@@ -1,21 +1,14 @@
 const express = require("express");
 const app = express();
+const router = require("./router/auth-router");
+
+app.use("/api/auth",router);
 
 
-
-
- 
-
-
-app.get("/",(req, resp) => {
-    resp.status(200).send("welcome to homepage of the server ");
-});
-
-app.get("/register",(req, resp) => {
-    resp
-    .status(200)
-    .send("welcome to register page on server")
-})
+//! to keep everything simple I am using auth-router  
+// app.get("/",(req, resp) => {
+//     resp.status(200).send("welcome to homepage of the server ");
+// });
 
 const PORT = 5000;
 app.listen(PORT,() => {
