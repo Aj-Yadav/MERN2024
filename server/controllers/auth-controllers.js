@@ -1,4 +1,5 @@
-const user = require("../models/user-model");
+const User = require("../models/user-model");
+const bcrypt = require("bcryptjs");
 
 const home = async (req, res) => {
 try {
@@ -15,15 +16,21 @@ const register = async (req, res) => {
     try {
         console.log(req.body);
         const {username, email, phone, password} = req.body;
-        const userExist = User.findOne({email: email});
+        const userExist = await User.findOne({email});
 
         if(userExist){
             return res.status(400).json({msg:"email already exists"});
         }
-        await User.create({username, email, phone, password});
-        res.status(200).send({data})
+
+        const saltRound = 10;
+        const hash_password = await bcrypt.hash(password, saltRound);
+        
+
+        const data = await User.create({username, email, phone, password:hash_password});
+        res.status(200).send({msg: data})
     } catch (error) {
-        res.status(400).send("their was error with register")
+        console.log(error);
+        res.status(400).json({msg:"their was error with register"});
     }
 }
 
