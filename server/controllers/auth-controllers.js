@@ -12,7 +12,8 @@ try {
 const register = async (req, res) => {
     try {
         console.log(req.body);
-        res.status(200).send({message:req.body})
+        const data = req.body;
+        res.status(200).send({data})
     } catch (error) {
         res.status(400).send("their was error with register")
     }
