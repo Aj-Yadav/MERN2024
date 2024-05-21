@@ -14,19 +14,23 @@ try {
 
 const register = async (req, res) => {
     try {
-        console.log(req.body);
-        const {username, email, phone, password} = req.body;
+        // console.log(req.body);
+        const { username,
+                email,
+                phone,
+                password} = req.body;
+                
         const userExist = await User.findOne({email});
 
         if(userExist){
             return res.status(400).json({msg:"email already exists"});
         }
 
-        const saltRound = 10;
-        const hash_password = await bcrypt.hash(password, saltRound);
+        // const saltRound = 10;
+        // const hash_password = await bcrypt.hash(password, saltRound);
         
 
-        const data = await User.create({username, email, phone, password:hash_password});
+        const data = await User.create({username, email, phone, password});
         res.status(200).send({msg: data})
     } catch (error) {
         console.log(error);
