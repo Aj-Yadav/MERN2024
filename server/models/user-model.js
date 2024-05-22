@@ -45,7 +45,12 @@ userSchema.pre('save', async function(next){
         next(error);
         
     }
-})
+});
+
+userSchema.methods.comparePassword = async function (password) {
+    // console.log("i am this from model",this.password);
+    return  bcrypt.compare(password, this.password);
+}
 
 
 // josn web token
@@ -65,6 +70,7 @@ userSchema.methods.generateToken = async function () {
     );
     } catch (error) {
         console.log(error);
+
         
     }
 };
