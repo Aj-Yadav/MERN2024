@@ -10,13 +10,13 @@ const errorMiddleware = require("./middleware/error-middleware");
 app.use(express.json());
 
 
+app.use(errorMiddleware);
 
 
 
 
 app.use("/api/auth",router);
 
-app.use(errorMiddleware);
 const PORT = 5000;
 try {
     
