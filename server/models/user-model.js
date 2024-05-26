@@ -42,7 +42,7 @@ userSchema.pre('save', async function(next){
         const hash_password = await bcrypt.hash(user.password, saltRound);
         user.password = hash_password;// by this we are changing field of password with hash_password
     } catch (error) {
-        next(error);
+        console.log(error);
         
     }
 });

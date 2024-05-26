@@ -1,4 +1,7 @@
+//   controllers -> auth-controllers.js
+
 const User = require("../models/user-model");
+
 const bcrypt = require("bcryptjs");
 
 //? GET home 
@@ -42,7 +45,7 @@ const login = async (req, res) => {
     try {
         const { email, password} = req.body;
         const userExist = await User.findOne({email});
-        console.log(userExist);
+        console.log("controller",userExist);
         if(!userExist){
             res.status(400).json({msg:"Invalid Credentials"});
         }
@@ -56,14 +59,15 @@ const login = async (req, res) => {
                 userId: await userExist._id.toString(), 
         });
         }else{
-            res.status(401).json({message:"Invalid email or password"});
+            res.status(401).json({mesConfig:"Invalid email or password"});
         }
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({msg:"Internal server error"});
+        res.status(500).json({mesConfig:"Internal server error"});
     }
 }
 
 
 module.exports = {home , register , login};
+
