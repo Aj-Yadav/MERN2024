@@ -1,19 +1,15 @@
-// error-middleware.js
 const errorMiddleware = (err, req, res, next) => {
-    
     const status = err.status || 500;
-    const message = err.message || "Backend Error";
+    const message = err.message || "BACKEND ERROR";
     const extraDetails = err.extraDetails || "Error from Backend";
-    
-    const errors = {
+  
+    const error = {
         status,
         message,
-        extraDetails
-    };
-
-    // console.log(type(error));
-   return res.status(status).json(errors);
-
-};
-
-module.exports = errorMiddleware;
+        extraDetails,
+      };
+    //   console.log("I am from error-middleware",error)
+    return res.status(status).json(error);
+  };
+  
+  module.exports = errorMiddleware;
