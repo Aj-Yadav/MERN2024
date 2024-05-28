@@ -1,0 +1,76 @@
+/* Navbar.module.css */
+
+.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between; /* Ensure items are spaced evenly */
+  align-items: center; /* Vertically center items */
+  padding: 10px 20px; /* Add padding for better spacing */
+}
+
+.logo-brand a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 20px; /* Add margin between logo and other elements */
+}
+
+.navbar nav {
+  display: none;
+}
+
+.navbar.open nav {
+  display: block;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: block;
+
+}
+
+.navbar a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  border-radius:2rem;
+  color: black;
+}
+
+.navbar .active {
+  background-color: #4caf50;
+  color: white;
+}
+
+
+@media (min-width: 768px) {
+  .navbar {
+    overflow: hidden;
+  }
+
+  .navbar nav {
+    display: block;
+  }
+
+  .navbar ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .navbar li {
+    margin-left: 10px;
+  }
+}
