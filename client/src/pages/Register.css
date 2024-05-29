@@ -1,0 +1,74 @@
+/* Register.css */
+
+.section-registration {
+    padding: 20px;
+    /* background-color: #f9f9f9; */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-two-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.registration-image img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.main-hedding {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+}
+.inlable{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.label {
+    display:grid;
+    text-align: center;
+    margin-left: 0px;
+}
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
