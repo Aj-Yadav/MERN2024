@@ -11,7 +11,7 @@ import Navbar from "./Components/Navbar/Navbar";
 
 const App = () => {
   return (
-    <>
+    <div className="App">
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -23,7 +23,7 @@ const App = () => {
       <Route path="/login" element={<Login/>}/>
     </Routes>
     </BrowserRouter>
-      </>
+      </div>
   )
 
 }
