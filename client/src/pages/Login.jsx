@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import "./Login.css";
+// import "./Login.css";
 const Login = () => {
     const [user, setUser]=useState({
         email:"",
@@ -36,7 +36,7 @@ const Login = () => {
                      
                         
                         <form onSubmit={handleSubmit} className="main-heading">
-                            <h2 className="heading2">Login  Form <hr className="horizontal-line"/></h2>
+                            <h2 className="heading2">Login  Form </h2>
                             
                             <div className="inlable">
                        

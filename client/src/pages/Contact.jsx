@@ -27,16 +27,18 @@ const Contact = () => {
             <section>
                 <main>
                     <div className="section-registration">
+                        <h2 className="heading2">Contact Us Form </h2>
                         <div className="container grid grid-two-cols">
+
                             <div className="img-image">
+
                                 <img
-                                    src="/images/register.png"
+                                    src="/images/support.png"
                                     alt="a girl in trying to do registration"
                                     width="500px" height="500px" />
                             </div>
 
                             <form onSubmit={handleSubmit} className="main-heading">
-                                <h2 className="heading2">Contact Us Form <hr className="horizontal-line" /></h2>
                                 <div className="inlable">
                                     <label className="label" htmlFor="userName">username</label>
                                     <input type="text"
@@ -59,19 +61,32 @@ const Contact = () => {
                                   
 
                                     <label className="label" htmlFor="message">Message</label>
-                                    <input type="text"
+                                    <textarea type="textarea"
                                         name="message"
                                         placeholder="enter your message"
                                         id="message"
                                         required autoComplete="off"
                                         value={user.message}
-                                        onChange={handleInput} />
+                                        onChange={handleInput}
+                                        coloumn="30" 
+                                        rows="5"/>
                                 </div>
                                 <button type="submit" className="Button">Send message</button>
                             </form>
                         </div>
                     </div>
                 </main>
+                    <scetion className="mb-3">
+
+                    <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d336.5018746767327!2d78.47707640558632!3d17.40775027086939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb982d75cdbcd1%3A0x13696b7738cdf34a!2sJani%20Cafe!5e0!3m2!1sen!2sin!4v1717149982324!5m2!1sen!2sin"
+                    alt="img not exist"
+                     width="600"
+                      height="450"
+                        allowFullScreen=""
+                         loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"></iframe>
+                    </scetion>
             </section>
         </>
     )

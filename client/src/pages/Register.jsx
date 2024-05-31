@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.css";
+// import "./Register.css";
 const Register = () => {
     const [user, setUser] = useState({
         username: "",
@@ -17,10 +17,27 @@ const Register = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        // alert(user)
+        alert(user)
+    // const reg_user = JSON.stringify(user);
+    //     console.log(reg_user)
+    try {
         // console.log(user)
+        const response =  await fetch(`http://localhost:5000/api/auth/register`,{
+            method:"post",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+        console.log(response)
+        
+    } catch (error) {
+        console.log("register",error)
+        
+    }
+
     }
 
     return (
@@ -37,7 +54,7 @@ const Register = () => {
                             </div>
 
                             <form onSubmit={handleSubmit} className="main-heading">
-                                <h2 className="heading2">Registration Form <hr className="horizontal-line" /></h2>
+                                <h2 className="heading2">Registration Form </h2>
                                 <div className="inlable">
                                     <label className="label" htmlFor="userName">username</label>
                                     <input type="text"
