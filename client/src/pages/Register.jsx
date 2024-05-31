@@ -17,26 +17,34 @@ const Register = () => {
         })
     }
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         alert(user)
-    // const reg_user = JSON.stringify(user);
-    //     console.log(reg_user)
-    try {
-        // console.log(user)
-        const response =  await fetch(`http://localhost:5000/api/auth/register`,{
-            method:"post",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
-        console.log(response)
-        
-    } catch (error) {
-        console.log("register",error)
-        
-    }
+        // const reg_user = JSON.stringify(user);
+        //     console.log(reg_user)
+        try {
+            // console.log(user)
+            const response = await fetch(`http://localhost:5000/api/auth/register`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+            if(response.ok){
+                setUser({
+                    username: "",
+                    email: "",
+                    phone: "",
+                    password: "",
+                })
+            }
+            console.log(response)
+
+        } catch (error) {
+            console.log("register", error)
+
+        }
 
     }
 

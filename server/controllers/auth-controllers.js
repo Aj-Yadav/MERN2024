@@ -23,16 +23,16 @@ const register = async (req, res) => {
     try {
         console.log(req.body);
         const { username,email,phone,password} = req.body;
-
         const userExist = await User.findOne({email});
-
         if(userExist){
             return res.status(400).json({msg:"email already exists"});
         }
-
         const data = await User.create({username, email, phone, password});
         // const value = await data.generateToken()
-        res.status(201).send({msg: "registration Successfull", token: await data.generateToken(),userId: await data._id.toString(), });
+        res.status(201).send({
+             msg: "registration Successfull",
+             token: await data.generateToken(),
+             userId: await data._id.toString(), });
         //? it is best practice to convert id to string to git rid of ferther complications in  frontend;
     } catch (error) {
         console.log(error);
