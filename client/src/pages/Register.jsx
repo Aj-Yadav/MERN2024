@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
+import {useNavigate} from "react-router-dom";
+import { useAuth } from "../Context/auth";
+
 // import "./Register.css";
+const URL = `http://localhost:5000/api/auth/register`;
 const Register = () => {
     const [user, setUser] = useState({
         username: "",
@@ -7,6 +11,13 @@ const Register = () => {
         phone: "",
         password: "",
     });
+
+
+
+    const {storeTokenInLS} = useAuth();
+    const navigate = useNavigate();
+
+
     const handleInput = (e) => {
         // console.log(e)
         let name = e.target.name;
@@ -19,25 +30,30 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        alert(user)
+        // alert(user)
         // const reg_user = JSON.stringify(user);
         //     console.log(reg_user)
         try {
             // console.log(user)
-            const response = await fetch(`http://localhost:5000/api/auth/register`, {
+            const response = await fetch(URL, {
                 method: "post",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(user)
             })
             if(response.ok){
+                const res_data = await response.json();
+                console.log("Register page frontend",res_data)
+                console.log("sent form context to reg",storeTokenInLS(res_data.token));
+                
+                // localStorage.setItem("res from server",res_data.token);
                 setUser({
                     username: "",
                     email: "",
                     phone: "",
                     password: "",
                 })
+                navigate("/login");
+                storeTokenInLS(res_data.token);
             }
             console.log(response)
 

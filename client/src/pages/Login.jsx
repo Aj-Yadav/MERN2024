@@ -1,10 +1,18 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/auth";
 // import "./Login.css";
+const URL =`http://localhost:5000/api/auth/login`;
 const Login = () => {
     const [user, setUser]=useState({
         email:"",
         password:"",
     });
+
+    const navigate= useNavigate();
+
+    const {storeTokenInLS}= useAuth();
+
     const handleInput = (e) => {
         // console.log(e)
         let name = e.target.name;
@@ -15,10 +23,40 @@ const Login = () => {
         })
     }
 
-    const handleSubmit =(e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        alert(user)
-        console.log(user)
+        // console.log(user)
+        // const log = JSON.stringify(user);
+        // console.log(log)
+        // alert(log)
+        try {
+            const response =  await fetch(URL,{
+                method:"post",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(user)
+            })
+            console.log(response);
+            if(response.ok) {
+                const res_login = await response.json();
+                // localStorage.setItem("data from server",res_login.token);
+                console.log("login",res_login)
+                storeTokenInLS(res_login.token)
+
+                setUser({
+
+                        email:"",
+                        password:"",
+                    })
+                    navigate("/");
+            }
+            else{
+                console.log("invalid credential")
+            }
+            console.log(response);
+            
+        } catch (error) {
+            console.log('client/login',error);
+        }
     }
 
     return(

@@ -76,7 +76,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </main>
-                    <scetion className="mb-3">
+                    <section className="mb-3">
 
                     <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d336.5018746767327!2d78.47707640558632!3d17.40775027086939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb982d75cdbcd1%3A0x13696b7738cdf34a!2sJani%20Cafe!5e0!3m2!1sen!2sin!4v1717149982324!5m2!1sen!2sin"
@@ -86,7 +86,7 @@ const Contact = () => {
                         allowFullScreen=""
                          loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"></iframe>
-                    </scetion>
+                    </section>
             </section>
         </>
     )
