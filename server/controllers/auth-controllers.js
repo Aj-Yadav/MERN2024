@@ -69,5 +69,25 @@ const login = async (req, res) => {
 }
 
 
-module.exports = {home , register , login};
+//*  user Logic📖📗📖📕📖📘
+
+
+const user = async(req, res) => {
+    try {
+        const userData = req.user;
+        console.log(`user${userData}`)
+        res.status(200).json({msg:userData});
+        
+    } catch (error) {
+        console.log(`auth-controller  :user${error}`)
+        res.status(400).json({msg:"error"});
+    }
+
+}
+
+
+
+
+
+module.exports = {home , register , login,user};
 

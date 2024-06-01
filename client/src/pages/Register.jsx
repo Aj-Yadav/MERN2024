@@ -34,12 +34,13 @@ const Register = () => {
         // const reg_user = JSON.stringify(user);
         //     console.log(reg_user)
         try {
-            // console.log(user)
+            console.log(user);
             const response = await fetch(URL, {
                 method: "post",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(user)
             })
+            console.log(response);
             if(response.ok){
                 const res_data = await response.json();
                 console.log("Register page frontend",res_data)
