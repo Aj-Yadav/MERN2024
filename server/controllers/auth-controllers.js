@@ -75,11 +75,12 @@ const login = async (req, res) => {
 const user = async(req, res) => {
     try {
         const userData = req.user;
-        console.log(`user${userData}`)
-        res.status(200).json({msg:userData});
+        // console.log(`user${userData}`)
+        console.log("auth-Controllers",userData)
+        return res.status(200).json({userData});
         
     } catch (error) {
-        console.log(`auth-controller  :user${error}`)
+        // console.log(`${error}`)
         res.status(400).json({msg:"error"});
     }
 
@@ -89,5 +90,5 @@ const user = async(req, res) => {
 
 
 
-module.exports = {home , register , login,user};
+module.exports = {home , register , login, user};
 

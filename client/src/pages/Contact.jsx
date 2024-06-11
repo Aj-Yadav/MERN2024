@@ -1,27 +1,74 @@
 import React, { useState } from "react";
 import "./Contact.css";
+import { useAuth } from "../Context/auth";
+const URL = "http://localhost:5000/api/form/contact";
+
 const Contact = () => {
-    const [user, setUser] = useState({
-        username: "",
-        email: "",
-        message: "",
-    });
+         const defaultContactFormData = {
+             username: "",
+             email: "",
+             message: "",
+           };
+        const [contacts, setContacts] = useState(defaultContactFormData);
+      
+
+    const [userdata, setuserData ] = useState(true);
+    const  {user}  = useAuth();
+    // console.log("data",data)
+    // console.log("user",user)
+ 
+    if(userdata && user){
+        // console.log("started")
+        setContacts({
+            username:user.username,
+            email:user.email,
+            message:"",
+        });
+        // console.log("dataSeted ",data)
+        setuserData(false)
+    }
+    // console.log("data",data)
+
+
     const handleInput = (e) => {
         // console.log(e)
         let name = e.target.name;
         let value = e.target.value;
-        setUser({
-            ...user,
+        setContacts({
+            ...contacts,
             [name]: value,//name is daynamic so that we can use different names like email, phone , password by this
-        })
-    }
+        });
+    };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        alert(user)
-        console.log(user)
-    }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            console.log("this is user",contacts);
+            const response = await fetch(URL, {
+                method: "POST",
+                headers: {
+                    'Content-Type': "application/json"},
+                body: JSON.stringify(contacts)
+            })
+            console.log("from contact response",response)
+            if (response.ok){
+            console.log('response is OK');
+               setContacts(defaultContactFormData);
+            }else{
+                console.log("some thing went wrong")
+                // alert("some thing went wrong")
+            }
+          
+            
+        } catch (error) {
+            console.log("contact front end error".error);
+        }
+       
+    }
+    // const handleContactForm= async (e) => {
+    //     epreventDefault();
+    // }
     return (
         <>
             <section>
@@ -40,13 +87,13 @@ const Contact = () => {
 
                             <form onSubmit={handleSubmit} className="main-heading">
                                 <div className="inlable">
-                                    <label className="label" htmlFor="userName">username</label>
+                                    <label className="label" htmlFor="username">username</label>
                                     <input type="text"
                                         name="username"
                                         placeholder="enter your username"
                                         id="username"
                                         required autoComplete="off"
-                                        value={user.username}
+                                        value={contacts.username}
                                         onChange={handleInput} />
 
                                     <label className="label" htmlFor="email">email</label>
@@ -55,7 +102,7 @@ const Contact = () => {
                                         placeholder="enter your email"
                                         id="email"
                                         required autoComplete="off"
-                                        value={user.email}
+                                        value={contacts.email}
                                         onChange={handleInput} />
 
                                   
@@ -66,7 +113,7 @@ const Contact = () => {
                                         placeholder="enter your message"
                                         id="message"
                                         required autoComplete="off"
-                                        value={user.message}
+                                        value={contacts.message}
                                         onChange={handleInput}
                                         coloumn="30" 
                                         rows="5"/>
@@ -91,4 +138,4 @@ const Contact = () => {
         </>
     )
 }
-export default Contact
+export default Contact; 

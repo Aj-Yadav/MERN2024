@@ -1,9 +1,10 @@
-const Services = () => {
-    return(
-    <div>
-    <h1 className="NavC">hello services page</h1>
+import ServicesList from "../Components/Services/ServicesList";
 
-</div>
-    )
-    }
-export default Services
+const Services = () => {
+  return (
+    <>
+      <ServicesList />
+    </>
+  );
+};
+export default Services;

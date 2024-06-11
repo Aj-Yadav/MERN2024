@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/auth";
+import { toast } from "react-toastify";
 // import "./Login.css";
 const URL = `http://localhost:5000/api/auth/login`;
 const Login = () => {
@@ -35,11 +36,12 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
       });
-      console.log(response);
+      // console.log(response);
+      const res_login = await response.json();
+      console.log("login", res_login);
+
       if (response.ok) {
-        const res_login = await response.json();
         // localStorage.setItem("data from server",res_login.token);
-        console.log("login", res_login);
         storeTokenInLS(res_login.token);
 
         setUser({
@@ -48,9 +50,9 @@ const Login = () => {
         });
         navigate("/");
       } else {
-        console.log("invalid credential");
+        toast.error(res_login.message);
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.log("client/login", error);
     }
@@ -79,7 +81,7 @@ const Login = () => {
                     email
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     name="email"
                     placeholder="enter your email"
                     id="email"

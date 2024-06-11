@@ -251,6 +251,52 @@ a.active {
     }
   }
 }
+.Shead{
+  display:grid;
+  justify-content: center;
+}
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.2rem;
+  
+}
+.card-container{
+  display:grid;
+  border:2px solid red;
+  /* border-radius:5rem; */
+  
+ & .card{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    &.torow{
+      grid-template-rows: repeat(2, 1fr); 
+      gap: 0.2rem;  
+      justify-content: space-between;
+      /* & .col {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 0.2rem;  
+      } */
+    }
+  }
+}
+li{
+  list-style: none;
+}
+
+
+.img-services img{
+  
+  width:20rem;
+  height:20rem;
+}
+
+
+
+
+
+
+
 
 /** -----------------------
 ** media query section css
@@ -327,3 +373,5 @@ a.active {
   padding:1.2rem;
   margin-top: auto;
 }
+
+

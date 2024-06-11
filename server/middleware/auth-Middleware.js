@@ -31,7 +31,7 @@ const authMiddleware = async (req, res , next ) => {
     
  } catch (error) {
    return res
-    .status(402)
+    .status(400)
     .json({message:"unauthorized HTTP, Token not provided"});
     
  }

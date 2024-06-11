@@ -1,6 +1,8 @@
 import React, { useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../Context/auth";
+import { toast } from "react-toastify";
+
 
 // import "./Register.css";
 const URL = `http://localhost:5000/api/auth/register`;
@@ -41,9 +43,12 @@ const Register = () => {
                 body: JSON.stringify(user)
             })
             console.log(response);
+
+            // console.log(response)
+
+            const res_data = await response.json();
+            console.log("Register page frontend",res_data)
             if(response.ok){
-                const res_data = await response.json();
-                console.log("Register page frontend",res_data)
                 console.log("sent form context to reg",storeTokenInLS(res_data.token));
                 
                 // localStorage.setItem("res from server",res_data.token);
@@ -55,8 +60,9 @@ const Register = () => {
                 })
                 navigate("/login");
                 storeTokenInLS(res_data.token);
+            }else{
+                toast.error(res_data.message? res_data.message : res_data.message)
             }
-            console.log(response)
 
         } catch (error) {
             console.log("register", error)
@@ -91,7 +97,7 @@ const Register = () => {
                                         onChange={handleInput} />
 
                                     <label className="label" htmlFor="email">email</label>
-                                    <input type="email"
+                                    <input type="text"
                                         name="email"
                                         placeholder="enter your email"
                                         id="email"

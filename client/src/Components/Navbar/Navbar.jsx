@@ -5,7 +5,7 @@ import { useAuth } from '../../Context/auth';
 
 const Navbar = () => {
   const { isLoggedIn } = useAuth();
-  console.log("is loged in ",isLoggedIn);
+  // console.log("is loged in ",isLoggedIn);
   return (
     <div className={styles.navbar}>
       <div className={styles['logo-brand']}>

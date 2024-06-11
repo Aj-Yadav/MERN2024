@@ -1,5 +1,7 @@
 import {NavLink} from "react-router-dom";
+import { useAuth } from "../Context/auth";
 const About = () => {
+    const {user} = useAuth();
     return (
         <>
             <main>
@@ -7,7 +9,7 @@ const About = () => {
                     <div className="container grid grid-two-cols">
                         <div className="hero-content">
                             {/* <p>We care to cure your Health</p> */}
-
+                            <p> Hii {user ?`Master ${user.username} `:`to our website`}</p>
                             <h1>Why Choose Us? </h1>
                             <p>
                                 Expertise: Our team consists of experienced IT professionals who
