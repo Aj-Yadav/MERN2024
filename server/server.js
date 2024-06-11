@@ -8,7 +8,7 @@ const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
 const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
-
+const adminRoute = require("./router/admin-router");
 
 const corsoptions = {
     origin:"http://localhost:5173",
@@ -21,6 +21,8 @@ app.use(express.json());
 app.use("/api/auth",authRoute);
 app.use("/api/form",contactRoute);
 app.use("/api/data",serviceRoute);
+
+app.use("/api/admin", adminRoute)
 
 app.use(errorMiddleware);
 
