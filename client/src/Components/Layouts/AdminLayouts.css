@@ -1,0 +1,120 @@
+/*AdminLayout.css
+.AdminLayout {
+  display: grid;
+  font-size: 2rem;
+  /* padding:5rem; 
+background-color: #222;
+  }
+  
+  .LeftSide {
+    width: 200px;
+    height: 100vh;
+    background-color: #aaa;
+  color: white;
+  /* position: absolute; 
+  top: 0;
+  left: 0;
+  display: grid;
+  padding: 0px;
+  
+}
+
+.RightSide {
+  margin-left: 250px; /* width of the side panel 
+  flex-grow: 1; /* Take remaining space 
+  padding: 20px;
+}
+
+.LeftSide nav ul {
+  list-style: none;
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.LeftSide nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.LeftSide nav ul li a.active {
+  font-weight: bold;
+}
+  */
+
+  /* AdminLayouts.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-size: 1.2rem;
+}
+
+#root {
+  height: 100%;
+}
+
+.AdminLayout {
+  display: grid;
+  grid-template-rows: 60px auto 60px; /* Adjust the heights of header and footer */
+  /* grid-template-columns: 2fr; */
+  grid-template-columns: auto auto;
+  height: 100vh;
+}
+/* 
+.Header {
+  grid-row: 1 / 2;
+} */
+
+/* .Content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100%;
+  height: 100%;
+  grid-row: 2 / 3;
+} */
+
+.LeftSide {
+  grid-column: 1 / 2;
+  /* background-color: #000; Light gray background for navigation */
+  padding: 20px;
+  box-sizing: border-box;
+  /* height:100%; */
+}
+
+.RightSide {
+  grid-column: 2 / 3;
+  padding: 5rem;
+  /* margin:5rem; */
+  box-sizing: border-box;
+}
+
+/* .Footer {
+  grid-row: 3 / 4;
+} */
+
+nav ul {
+  list-style-type: none;
+  
+
+  padding: 2rem;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+nav a.active {
+  font-weight: bold;
+}
+
+
+ 
