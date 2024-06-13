@@ -15,6 +15,7 @@ import AdminLayout from "./Components/Layouts/AdminLayouts";
 import AdminContacts from "./pages/AdminContacts";
 import AdminUsers from "./pages/AdminUsers";
 import AdminServices from "./pages/AdminServices";
+import AdminUpdate from "./pages/AdminUpdate";
 
 const App = () => {
   return (
@@ -29,15 +30,14 @@ const App = () => {
       <Route path="/logout" element={<Logout/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
-
+      <Route path="*" element={<Error/>}/>
       <Route path="/admin" element={<AdminLayout/>}>
         <Route path="users" element={<AdminUsers/>}/>
         <Route path="contacts" element={<AdminContacts/>}/>
+        <Route path="users/:id/edit" element={<AdminUpdate/>}/>
         <Route path="adminservices" element={<AdminServices/>}/>
-
       </Route>
 
-      <Route path="*" element={<Error/>}/>
 
     </Routes>
     <Footer/>

@@ -7,6 +7,8 @@ export const AuthProvider = ({ children }) => {
    const [token, setToken] = useState(localStorage.getItem("token"));
    const [user, setUser] = useState("")
    const [service,setService] = useState([]);
+   const AuthorizationToken = `Bearer ${token}`
+   const API = "http://localhost:5000";
 
    
     
@@ -16,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     let isLoggedIn =!!token; 
-    console.log("is logged in ",isLoggedIn)
+    // console.log("is logged in ",isLoggedIn)
     //if token is "" then it taken false if their is any value in token is true
     
     const LogoutUser = () => {
@@ -33,7 +35,7 @@ export const AuthProvider = ({ children }) => {
             const response = await fetch(`http://localhost:5000/api/auth/user`,{
                 method:"GET",
                 headers:{
-                    Authorization:`Bearer ${token}`
+                    Authorization:AuthorizationToken
                 },
 
             })
@@ -73,7 +75,7 @@ export const AuthProvider = ({ children }) => {
             const data = await response.json()
             // console.log("data from auth",data)
             const message = data.msg;
-            console.log("resp of message",message)
+            // console.log("resp of message",message)
             setService(message)
             // console.log("message data from auth after setservice",message)
 
@@ -90,7 +92,7 @@ export const AuthProvider = ({ children }) => {
     },[])
     
     return (
-        <AuthContext.Provider value={{isLoggedIn, storeTokenInLS, LogoutUser,user,service}}>
+        <AuthContext.Provider value={{isLoggedIn, storeTokenInLS, LogoutUser,user,service, AuthorizationToken,API}}>
             {children}
         </AuthContext.Provider>
     );

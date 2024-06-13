@@ -1,7 +1,7 @@
 /* Navbar.module.css */
 
 .navbar {
-  background-color: #cc4242;
+  /* background-color: #cc4242; */
   display: flex;
   justify-content: space-between; /* Ensure items are spaced evenly */
   align-items: center; /* Vertically center items */

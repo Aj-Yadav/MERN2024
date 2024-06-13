@@ -1,56 +1,10 @@
-/*AdminLayout.css
-.AdminLayout {
-  display: grid;
-  font-size: 2rem;
-  /* padding:5rem; 
-background-color: #222;
-  }
-  
-  .LeftSide {
-    width: 200px;
-    height: 100vh;
-    background-color: #aaa;
-  color: white;
-  /* position: absolute; 
-  top: 0;
-  left: 0;
-  display: grid;
-  padding: 0px;
-  
-}
 
-.RightSide {
-  margin-left: 250px; /* width of the side panel 
-  flex-grow: 1; /* Take remaining space 
-  padding: 20px;
-}
-
-.LeftSide nav ul {
-  list-style: none;
-  padding: 2rem;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.LeftSide nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.LeftSide nav ul li a.active {
-  font-weight: bold;
-}
-  */
-
-  /* AdminLayouts.css */
 
 body, html {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  font-size: 1.2rem;
+  height:100vh;
+  font-size: 1rem;
 }
 
 #root {
@@ -63,6 +17,9 @@ body, html {
   /* grid-template-columns: 2fr; */
   grid-template-columns: auto auto;
   height: 100vh;
+  border: 5px solid #ffa;
+  /* border: #ffa; */
+
 }
 /* 
 .Header {
@@ -79,42 +36,55 @@ body, html {
 
 .LeftSide {
   grid-column: 1 / 2;
+  border: 5px solid #ffa;
   /* background-color: #000; Light gray background for navigation */
   padding: 20px;
   box-sizing: border-box;
-  /* height:100%; */
-}
+  height: 100vh;
 
+  & nav ul {
+    display: grid;
+    list-style-type: none;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  & nav li {
+    margin-bottom: 10px;
+  border-radius: 10px;
+
+    background-color: #ffa;
+    min-width: 10rem;
+    width:fit-content;
+
+    
+
+  }
+  & nav a {
+    text-decoration: none;
+    color: #4d05f7;
+    padding:5px;
+    margin:5px;
+  }
+  & 
+  nav a:active {
+    font-weight: bold;
+  }
+}
 .RightSide {
+  border: 5px solid #ffa;
   grid-column: 2 / 3;
   padding: 5rem;
   /* margin:5rem; */
   box-sizing: border-box;
+  height: 100vh;
 }
 
-/* .Footer {
-  grid-row: 3 / 4;
-} */
 
-nav ul {
-  list-style-type: none;
-  
 
-  padding: 2rem;
-}
 
-nav li {
-  margin-bottom: 10px;
-}
 
-nav a {
-  text-decoration: none;
-  color: #fff;
-}
 
-nav a.active {
-  font-weight: bold;
-}
 
 
  

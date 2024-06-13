@@ -1,0 +1,45 @@
+
+.Table{
+    background-color: #fff;
+    font-size: 15px;;
+    border-radius: 5px;;
+    
+    /* margin-left: -2rem;
+    background-color: #fff;
+    color:#550cff;
+    
+    /* padding:5px; 
+    border:.5rem solid #fff;
+    border-radius: 5px; */
+    
+    
+    }
+    .THRow{
+        /* display: flex; */
+        width:64vw;
+    display:grid;
+    grid-template-columns:repeat(5,minmax(10rem,1fr));
+    align-items:center;
+    box-shadow:0 0.3rem 0 gray;
+    margin-bottom:10px;
+    border-bottom:4px solid transparent;
+    color:#000;
+
+    &:last-child{
+        box-shadow:none;
+    }
+}
+
+.Tbody{
+    display: flex;
+
+    /* font-weight: ; */
+    justify-content: center;
+    align-items: center;
+    width:16vw;
+    margin:4px 0px 4px 0px;
+    /* padding:8px 0px 8px 0px; */
+    border-radius: 2rem;
+
+
+}

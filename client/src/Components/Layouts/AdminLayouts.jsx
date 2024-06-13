@@ -1,5 +1,11 @@
 
 import { NavLink, Outlet } from "react-router-dom";
+import { FaUsers } from "react-icons/fa";
+import { IoIosContacts } from "react-icons/io";
+import { FaHome } from "react-icons/fa";
+
+import { GrServices } from "react-icons/gr";
+
 import "./AdminLayouts.css"; // Import the CSS file for styling
 
 const AdminLayout = () => {
@@ -12,22 +18,26 @@ const AdminLayout = () => {
           <nav>
             <ul>
               <li>
-                <NavLink to="/admin/users" activeClassName="active">
+                <NavLink to="/admin/users" className="active">
+                <FaUsers />
                   Users
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/admin/contacts" activeClassName="active">
+                <NavLink to="/admin/contacts" className="active">
+                <IoIosContacts />
                   Contacts
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/admin/adminservices" activeClassName="active">
+                <NavLink to="/admin/adminservices" className="active">
+                <GrServices />
                   Services
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/" activeClassName="active">
+                <NavLink to="/" className="active">
+                <FaHome />
                   Home
                 </NavLink>
               </li>
