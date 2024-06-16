@@ -365,13 +365,49 @@ li{
   }
 }
 
-.main-Footer{
+/* .main-Footer{
   display:flex;
   justify-content: center;
   background-color: #535bf2;
   color:#fff;
   padding:1.2rem;
   margin-top: auto;
+  height:30px;
+} */
+.main-Footer{
+
+display: flex;
+justify-content: center;
+/* background-color: #535bf2; */
+/* color: hsl(0, 0%, 100%); */
+padding: 1.2rem;
+margin-top: auto;
+height: 60px; 
+} 
+
+.AdminServices{
+  display:grid;
+  /* grid-template-columns: auto auto; */
 }
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 20px; /* Optional padding for your content */
+}

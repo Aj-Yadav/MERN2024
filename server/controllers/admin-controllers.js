@@ -78,6 +78,7 @@ const getAllContacts = async (req, res) => {
     if (!contacts || contacts.lenght === 0) {
       return res.status(404).json({msg:"no Contacts Found"});
     }
+    console.log(contacts)
     return res.status(200).json({contacts});
   } catch (error) {
     next(error);
@@ -85,10 +86,23 @@ const getAllContacts = async (req, res) => {
   }
 };
 
+const deleteContactById = async (req, res) => {
+  try {
+    const id =req.params.id;
+    await Contact.deleteOne({ _id: id });
+    // console.log("data")
+    return res.status(200).json({msg:{success}});
+  } catch (error) {
+    next(error)
+    
+  }
+}
+
 module.exports = {
   getAllUsers,
   getAllContacts,
   deleteUserById,
   getUsersById,
   updateUsersById,
+  deleteContactById,
 };

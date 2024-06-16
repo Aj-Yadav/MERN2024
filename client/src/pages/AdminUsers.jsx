@@ -7,6 +7,9 @@ import { Link } from "react-router-dom";
 const AdminUsers = ({ currUser }) => {
   const [users, setUsers] = useState([]);
   const { AuthorizationToken,API } = useAuth();
+
+  
+  }
   const getAllContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/users`, {
@@ -26,7 +29,7 @@ const AdminUsers = ({ currUser }) => {
   };
   useEffect(() => {
     getAllContactsData();
-  }, []);
+  }, [getAllContactsData]);
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
@@ -36,8 +39,7 @@ const AdminUsers = ({ currUser }) => {
           headers: {
             Authorization: AuthorizationToken,
           },
-        }
-      );
+        });
       console.log(`Response data user ${response}`);
       const data = await response.json();
       console.log(`users after delete ${data}`);
@@ -46,11 +48,11 @@ const AdminUsers = ({ currUser }) => {
       } else {
         toast("Your have no Admin access");
       }
-      // setUsers(data);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <div className="AdminUser">
       <table className="Table">

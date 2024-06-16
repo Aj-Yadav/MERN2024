@@ -95,6 +95,7 @@ const AdminUpdate = () => {
   //   return <div>Loading...</div>;  // Show loading indicator while data is being fetched
   // }
 
+
   return (
     <section className="section-contact">
       <div className="contact-content container">
