@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import { useAuth } from "../Context/auth";
 const URL = "http://localhost:5000/api/form/contact";
@@ -10,23 +10,23 @@ const Contact = () => {
              message: "",
            };
         const [contacts, setContacts] = useState(defaultContactFormData);
-      
-
     const [userdata, setuserData ] = useState(true);
     const  {user}  = useAuth();
     // console.log("data",data)
     // console.log("user",user)
- 
-    if(userdata && user){
-        // console.log("started")
-        setContacts({
-            username:user.username,
-            email:user.email,
-            message:"",
-        });
-        // console.log("dataSeted ",data)
-        setuserData(false)
-    }
+ useEffect(() =>{
+     if(userdata && user){
+         // console.log("started")
+         setContacts({
+             username:user.username,
+             email:user.email,
+             message:"",
+         });
+         // console.log("dataSeted ",data)
+         setuserData(false)
+     }
+
+ },[contacts])
     // console.log("data",data)
 
 
@@ -38,6 +38,7 @@ const Contact = () => {
             ...contacts,
             [name]: value,//name is daynamic so that we can use different names like email, phone , password by this
         });
+      const contactData = contacts;
     };
 
 
@@ -54,7 +55,16 @@ const Contact = () => {
             console.log("from contact response",response)
             if (response.ok){
             console.log('response is OK');
-               setContacts(defaultContactFormData);
+            //    setContacts(defaultContactFormData);
+            // handleInput()
+            // setDefaultContact(contactData)
+            setContacts({
+                username:user.username,
+                email:user.email,
+                message:"",
+            });
+
+            
             }else{
                 console.log("some thing went wrong")
                 // alert("some thing went wrong")
