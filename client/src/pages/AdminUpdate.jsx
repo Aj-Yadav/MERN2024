@@ -9,46 +9,35 @@ const AdminUpdate = () => {
     email: "",
     phone: "",
   });
-  // const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
   console.log("params single user: ", params);
   const { AuthorizationToken, API } = useAuth();
 
-  //   get single user data
   const getSingleUserData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/users/${params.id}`, {
-        method:"GET",
-                headers:{
-                    Authorization:AuthorizationToken
-                },
-      });
-      if(response.ok){
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/${params.id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: AuthorizationToken,
+          },
+        }
+      );
+      if (response.ok) {
         // console.log("response is ok");
         const user = await response.json();
         console.log(`User data: ${JSON.stringify(user, null, 2)}`);
         // console.log(user.data.username);
         setData(user.data);
-        // if(response.ok){
-          //   const user = await response.json();
-          //   // console.log(userdata.username)
-          //   setData(user);
-          
-          // alert(data)
-          
-          // setIsLoading(false); 
-        }else{
-            console.log("error fetch user data");
-          }
-          
-          // if (response.ok) {
-          //     getSingleUserData();
-          //   }
-            } catch (error) {
-              console.log(error);
-              }
-              };
+      } else {
+        console.log("error fetch user data");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     getSingleUserData();
@@ -64,7 +53,6 @@ const AdminUpdate = () => {
     });
   };
 
-  // to udpate the data dynamically
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -91,11 +79,6 @@ const AdminUpdate = () => {
     }
   };
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;  // Show loading indicator while data is being fetched
-  // }
-
-
   return (
     <section className="section-contact">
       <div className="contact-content container">
@@ -108,17 +91,38 @@ const AdminUpdate = () => {
           <form onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username">username</label>
-              <input type="text" name="username" id="username" autoComplete="off" value={data.username} onChange={handleInput} required
+              <input
+                type="text"
+                name="username"
+                id="username"
+                autoComplete="off"
+                value={data.username}
+                onChange={handleInput}
+                required
               />
             </div>
             <div>
               <label htmlFor="email">email</label>
-              <input type="email" name="email" id="email" autoComplete="off" value={data.email} onChange={handleInput} required
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="off"
+                value={data.email}
+                onChange={handleInput}
+                required
               />
             </div>
             <div>
               <label htmlFor="phone">Mobile</label>
-              <input type="phone" name="phone" id="phone" autoComplete="off" value={data.phone} onChange={handleInput} required
+              <input
+                type="phone"
+                name="phone"
+                id="phone"
+                autoComplete="off"
+                value={data.phone}
+                onChange={handleInput}
+                required
               />
             </div>
             <div>

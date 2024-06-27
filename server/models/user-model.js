@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema({
 
 //? secure the password with bcrypt 
 userSchema.pre('save', async function(next){
-    // console.log("pre userSchema",this);
     const user = this;
 
     if(!user.isModified("password")){
@@ -37,10 +36,9 @@ userSchema.pre('save', async function(next){
     }
 
     try {
-        //  const saltRound = 10;
          const saltRound = await bcrypt.genSalt(10);
         const hash_password = await bcrypt.hash(user.password, saltRound);
-        user.password = hash_password;// by this we are changing field of password with hash_password
+        user.password = hash_password;
     } catch (error) {
         console.log("bcrypt",error);
         
@@ -48,14 +46,11 @@ userSchema.pre('save', async function(next){
 });
 
 userSchema.methods.comparePassword = async function (password) {
-    // console.log("i am this from model",this.password);
     return  bcrypt.compare(password, this.password);
 }
 
 
-// josn web token
 userSchema.methods.generateToken = async function () {
-    // npm i jsonwebtoken
     try {
         return jwt.sign({
             userId: this._id.toString(),

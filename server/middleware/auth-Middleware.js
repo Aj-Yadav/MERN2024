@@ -10,10 +10,8 @@ const authMiddleware = async (req, res , next ) => {
     .status(401)
     .json({message:"unauthorized HTTP, Token not provided"});
  }
-//  console.log("token form auth middleware",token);
  
  const jwtToken = await token.replace("Bearer", "").trim();
-//  console.log("jwt token form auth middleware",jwtToken);
  try {
 
     const isverified =  jwt.verify(jwtToken,process.env.JWT_SECRET_KEY)

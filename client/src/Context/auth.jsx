@@ -1,5 +1,4 @@
-import { createContext , useContext, useEffect, useState} from "react";// this line is not required if we use React.createContext(); while exporting AuthContext
-// import axios from 'axios';
+import { createContext , useContext, useEffect, useState} from "react";
 
 export const AuthContext = createContext();
 

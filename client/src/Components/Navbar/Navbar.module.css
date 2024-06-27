@@ -1,11 +1,9 @@
-/* Navbar.module.css */
 
 .navbar {
-  /* background-color: #cc4242; */
   display: flex;
-  justify-content: space-between; /* Ensure items are spaced evenly */
-  align-items: center; /* Vertically center items */
-  padding: 10px 20px; /* Add padding for better spacing */
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px 20px; 
 }
 
 .logo-brand a {
@@ -13,7 +11,7 @@
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-right: 20px; /* Add margin between logo and other elements */
+  margin-right: 20px; 
 }
 
 .navbar nav {

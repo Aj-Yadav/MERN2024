@@ -20,28 +20,23 @@ const Login = () => {
     let value = e.target.value;
     setUser({
       ...user,
-      [name]: value, //name is daynamic so that we can use different names like email, phone , password by this
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(user)
-    // const log = JSON.stringify(user);
-    // console.log(log)
-    // alert(log)
+
     try {
       const response = await fetch(URL, {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
       });
-      // console.log(response);
       const res_login = await response.json();
       console.log("login", res_login);
 
       if (response.ok) {
-        // localStorage.setItem("data from server",res_login.token);
         storeTokenInLS(res_login.token);
 
         setUser({
@@ -52,7 +47,6 @@ const Login = () => {
       } else {
         toast.error(res_login.message);
       }
-      // console.log(response);
     } catch (error) {
       console.log("client/login", error);
     }

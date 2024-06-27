@@ -9,7 +9,6 @@ const adminMiddleware = async (req, res, next) => {
                 message:"Access Denied. User Is Not An Admin."
             })
         }
-        // res.status(200).json({msg:req.user.isAdmin});
         next();
     } catch (error) {
         next(error);

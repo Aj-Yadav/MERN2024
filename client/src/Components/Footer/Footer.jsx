@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
-    <div className='main-Footer'>
-    <h2>@Gajakesari 2024</h2>
+    <div className="main-Footer">
+      <h2>@Ajay 2024</h2>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

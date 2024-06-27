@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 
 const AdminUsers = ({ currUser }) => {
   const [users, setUsers] = useState([]);
-  const { AuthorizationToken,API } = useAuth();
-
-  
-  }
+  const { AuthorizationToken, API } = useAuth();
   const getAllContactsData = async () => {
     try {
       const response = await fetch(`${API}/api/admin/users`, {
@@ -39,7 +36,8 @@ const AdminUsers = ({ currUser }) => {
           headers: {
             Authorization: AuthorizationToken,
           },
-        });
+        }
+      );
       console.log(`Response data user ${response}`);
       const data = await response.json();
       console.log(`users after delete ${data}`);
@@ -82,8 +80,8 @@ const AdminUsers = ({ currUser }) => {
           );
         })}
       </table>
-      {/* <Outlet/> */}
     </div>
   );
 };
+
 export default AdminUsers;

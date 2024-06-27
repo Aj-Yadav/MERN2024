@@ -8,7 +8,6 @@ const errorMiddleware = (err, req, res, next) => {
         message,
         extraDetails,
       };
-      // console.log("I am from error-middleware",error)
     return res.status(status).json(error);
   };
   
