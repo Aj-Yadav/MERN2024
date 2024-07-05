@@ -1,4 +1,3 @@
-// Server.js 
 require("dotenv").config();
 const express = require("express");
 const app = express();
@@ -10,23 +9,33 @@ const connectDb = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 const adminRoute = require("./router/admin-router");
 
+const url = require('url');
+const path = require('path');
+
+const BASE_URL = process.env.BASE_URL;
+if (!BASE_URL) {
+  console.error('Error: BASE_URL is not defined in the environment variables.');
+  process.exit(1);
+}
+const parsedUrl = url.parse(BASE_URL);
+const basePath = parsedUrl.path;
+
 const corsoptions = {
-    origin:"http://localhost:5173",
+    origin:`*`,
     method:"GET,POST,PUT,DELETE,PATCH,HEAD",
     credentials:true,
 }
 app.use(cors(corsoptions));
 app.use(express.json());
 
-app.use("/api/auth",authRoute);
-app.use("/api/form",contactRoute);
-app.use("/api/data",serviceRoute);
-
-app.use("/api/admin", adminRoute)
+app.use(`${basePath}api/auth`,authRoute);
+app.use(`${basePath}api/form`,contactRoute);
+app.use(`${basePath}api/data`,serviceRoute);
+app.use(`${basePath}api/admin`, adminRoute)
 
 app.use(errorMiddleware);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000
 try {
     connectDb().then(()=>{
         app.listen(PORT,() => {
