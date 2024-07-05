@@ -1,4 +1,5 @@
 require("dotenv").config();
+const dotenv = require('dotenv');
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -11,6 +12,7 @@ const adminRoute = require("./router/admin-router");
 
 const url = require('url');
 const path = require('path');
+dotenv.config({ path: path.resolve(__dirname, './.env') });
 
 const BASE_URL = process.env.BASE_URL;
 if (!BASE_URL) {
