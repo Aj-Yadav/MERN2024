@@ -18,7 +18,7 @@ body, html {
   /* grid-template-columns: 2fr; */
   grid-template-columns: auto auto;
   height: 1000vh;
-  border: 5px solid #ffa;
+  /* border: 5px solid #ffa; */
   /* border: #ffa; */
 
 }
@@ -37,7 +37,7 @@ body, html {
 
 .LeftSide {
   grid-column: 1 / 2;
-  border: 5px solid #ffa;
+  /* border: 5px solid #ffa; */
   /* background-color: #000; Light gray background for navigation */
   padding: 20px;
   box-sizing: border-box;
@@ -54,7 +54,7 @@ body, html {
     margin-bottom: 10px;
   border-radius: 10px;
 
-    background-color: #ffa;
+    /* background-color: #ffa; */
     min-width: 10rem;
     width:fit-content;
 
@@ -73,7 +73,7 @@ body, html {
   }
 }
 .RightSide {
-  border: 5px solid #ffa;
+  /* border: 5px solid #ffa; */
   grid-column: 2 / 3;
   padding: 5rem;
   /* margin:5rem; */
