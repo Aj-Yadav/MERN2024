@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/auth";
 import { toast } from "react-toastify";
+// import { useAuth } from "../Context/auth";
+
 // import "./Login.css";
-const URL = `http://localhost:5000/api/auth/login`;
+// const URL = `http://localhost:5000/api/auth/login`;
 const Login = () => {
+  const { API } = useAuth();
+  const URL = `${API}/api/auth/login`;
   const [user, setUser] = useState({
     email: "",
     password: "",

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/auth";
 import { toast } from "react-toastify";
+// import { useAuth } from "../Context/auth";
 
 // import "./Register.css";
-const URL = `http://localhost:5000/api/auth/register`;
+// const URL = `http://localhost:5000/api/auth/register`;
 const Register = () => {
+  const { API } = useAuth();
+  const URL = `${API}/api/auth/register`;
   const [user, setUser] = useState({
     username: "",
     email: "",

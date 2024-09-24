@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../Context/auth";
 import { toast } from "react-toastify";
+// import { useAuth } from "../Context/auth";
 
 const AdminUpdate = () => {
+  // const URL = `${API}/api/form/contact`;
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -17,7 +19,8 @@ const AdminUpdate = () => {
   const getSingleUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/${params.id}`,
+        `${API}/api/admin/users/${params.id}`,
+        // `http://localhost:5000/api/admin/users/${params.id}`,
         {
           method: "GET",
           headers: {

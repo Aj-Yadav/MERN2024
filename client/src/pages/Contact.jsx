@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import { useAuth } from "../Context/auth";
-const URL = "http://localhost:5000/api/form/contact";
+// const URL = `http://localhost:5000/api/form/contact`;
 
 const Contact = () => {
+  const { API } = useAuth();
+  const URL = `${API}/api/form/contact`;
   const defaultContactFormData = {
     username: "",
     email: "",
