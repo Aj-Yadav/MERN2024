@@ -8,7 +8,8 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [service, setService] = useState([]);
   const AuthorizationToken = `Bearer ${token}`;
-  const API = "http://localhost:5000";
+  // const API = "http://localhost:5000";
+  const API = "https://mern-shield.onrender.com";
 
   const storeTokenInLS = (serviceToken) => {
     setToken(serviceToken);

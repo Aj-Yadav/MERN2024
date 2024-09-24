@@ -201,7 +201,10 @@ a.active {
 /** -----------------------
 ** services section css
 ** -------------------------  */
-
+.main-service{
+  margin:10px;
+  padding:10px;
+}
 .section-services {
   & .container:first-child {
     padding: 0;
@@ -252,7 +255,10 @@ a.active {
 }
 .card-container{
   display:grid;
-  border:2px solid red;
+  padding:25px;
+  border:2px solid #000;
+  border-radius: 10%;
+
   
  & .card{
     display:grid;
