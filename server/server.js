@@ -14,7 +14,8 @@ const url = require("url");
 const path = require("path");
 dotenv.config({ path: path.resolve(__dirname, "./.env") });
 
-const BASE_URL = process.env.BASE_URL;
+// const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.RENDER_EXTERNAL_URL || process.env.BASE_URL;
 if (!BASE_URL) {
   console.error("Error: BASE_URL is not defined in the environment variables.");
   process.exit(1);
